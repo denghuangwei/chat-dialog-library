@@ -12,12 +12,7 @@ npm run serve
 
 ### Compiles and minifies for production
 ```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
+npm run lib
 ```
 
 ### Lints and fixes files
@@ -27,3 +22,10 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### How to use the chat-dialog-library
+```
+import ChatDialog from 'chat-dialog-library'
+Vue.use(ChatDialog)
+```
