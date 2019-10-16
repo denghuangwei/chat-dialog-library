@@ -7,6 +7,14 @@
 </template>
 
 <script>
+
+function fillZeroPrefix(num) {
+  if (+num < 10) {
+    return `0${num}`
+  }
+
+  return num
+}
 export default {
   name: 'chat-time-info',
   computed: {
@@ -21,8 +29,8 @@ export default {
       }
       value = new Date(value)
       const year  = value.getFullYear()
-      const month = value.getMonth()
-      const day = value.getDate()
+      let month = value.getMonth()
+      let day = value.getDate()
       let hour = value.getHours()
       let minute = value.getMinutes()
       let ext = 'AM'
@@ -30,9 +38,9 @@ export default {
         hour-=12
         ext = 'PM'
       }
-      if (minute < 10) {
-        minute = `0${minute}`
-      }
+      day = fillZeroPrefix(day)
+      hour = fillZeroPrefix(hour)
+      minute = fillZeroPrefix(minute)
       const mongthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       return `${mongthList[month]} ${day}, ${year} ${hour}:${minute} ${ext}`
     }
