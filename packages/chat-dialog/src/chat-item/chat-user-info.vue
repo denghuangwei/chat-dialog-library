@@ -28,17 +28,17 @@ export default {
         messageItem() {
           return this.$attrs.messageItem || {}
         },
+        pesonalInfo() {
+          return this.$attrs.personalInfo || {}
+        },
         isOwner() {
-            return this.$attrs.id === this.messageItem.id
+            return this.pesonalInfo.id === this.messageItem.id
         }
     }
 }
 </script>
 
-<style>
-.chat-item {
-  margin-bottom: 10px;
-}
+<style scoped>
 .chat-flex-item {
   display: flex;
 }

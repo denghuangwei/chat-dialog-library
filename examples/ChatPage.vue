@@ -1,8 +1,7 @@
 <template>
   <div class="user-container">
     <chat-dialog
-      :id="userId"
-      :name="userName"
+      :personal-info="personalInfo"
       :group-name="groupName"
       :messages="messageList"
       @submit-message-item="submitMessageItem"
@@ -56,11 +55,11 @@ export default {
     }
   },
   computed: {
-      userId() {
-          return this.$route.query.userid
-      },
-      userName() {
-          return this.$route.query.username
+      personalInfo() {
+          return {
+              id: this.$route.query.userid,
+              name: this.$route.query.username 
+          }
       },
       groupName() {
           return this.$route.query.groupname

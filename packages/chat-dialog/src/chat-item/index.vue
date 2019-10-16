@@ -36,3 +36,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.chat-item {
+  margin-bottom: 10px;
+}
+</style>

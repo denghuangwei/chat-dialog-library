@@ -1,11 +1,11 @@
 <template>
   <div>
-    <chat-dialog-header :name="groupName || name"></chat-dialog-header>
+    <chat-dialog-header :name="groupName || personalInfo.name"></chat-dialog-header>
     <div class="message-container">
       <template v-for="(item, index) in messages">
         <chat-item
           :key="index"
-          :id="id"
+          :personalInfo="personalInfo"
           :messageItem="item"
           :showTime="needShowTime(index)"
         ></chat-item>
@@ -27,15 +27,14 @@ export default {
         ChatDialogHeader
     },
     props: {
-        id: {
-            type: String,
-            required: true,
-            validator(v) {
-                return v && v.trim() !== ''
+        personalInfo: {
+            type: Object,
+            default() {
+                return {
+                    id: '',
+                    name: ''
+                }
             }
-        },
-        name: {
-            type: String
         },
         messages: {
             type: Array,
@@ -56,8 +55,8 @@ export default {
     methods: {
         addMessage(item) {
             this.$emit('submit-message-item', {
-                id: this.id,
-                name: this.name,
+                id: this.personalInfo.id,
+                name: this.personalInfo.name,
                 message: item.message,
                 type: item.type,
                 createdTime: Date.now()
