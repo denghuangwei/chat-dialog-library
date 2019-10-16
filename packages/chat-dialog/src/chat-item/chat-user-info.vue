@@ -1,7 +1,8 @@
 <template>
   <div
+    v-if="messageItem"
     :class="{ owner: isOwner }"
-    class="chat-item"
+    class="chat-flex-item"
   >
     <div class="profile">{{messageItem.name}}</div>
     <div
@@ -22,35 +23,24 @@
 
 <script>
 export default {
-    props: {
-        id: {
-            type: String,
-            required: true
-        },
-        messageItem: {
-            type: Object,
-            default() {
-                return {
-                    name: '',
-                    id: '',
-                    message: '',
-                    type: ''
-                }
-            }
-        }
-    },
+    name: 'chat-user-info',
     computed: {
+        messageItem() {
+          return this.$attrs.messageItem || {}
+        },
         isOwner() {
-            return this.id === this.messageItem.id
+            return this.$attrs.id === this.messageItem.id
         }
     }
 }
 </script>
 
-<style scoped>
+<style>
 .chat-item {
-  display: flex;
   margin-bottom: 10px;
+}
+.chat-flex-item {
+  display: flex;
 }
 .owner {
   flex-direction: row-reverse;
@@ -61,7 +51,7 @@ export default {
   flex-shrink: 0;
 }
 .message-left {
-  width: 70%;
+  max-width: 70%;
   background-color: sandybrown;
   border-radius: 5px;
   position: relative;
@@ -81,7 +71,7 @@ export default {
   z-index: -1;
 }
 .message-right {
-  width: 70%;
+  max-width: 70%;
   background-color: green;
   border-radius: 5px;
   position: relative;

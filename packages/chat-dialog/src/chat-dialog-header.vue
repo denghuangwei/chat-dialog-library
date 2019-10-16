@@ -19,10 +19,12 @@ export default {
 <style>
 .chat-dialog-header {
   text-align: center;
-  position: absolute;
+  position: fixed;
   top: 0px;
-  height: 30px;
+  height: 40px;
   background-color: cornsilk;
-  width: 95%;
+  width: 100%;
+  z-index: 2;
+  line-height: 40px;
 }
 </style>

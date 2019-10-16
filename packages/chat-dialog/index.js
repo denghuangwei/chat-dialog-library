@@ -1,4 +1,4 @@
-import ChatDialog from './src/chat-dialog.vue'
+import ChatDialog from './src/index.vue'
 
 ChatDialog.install = function (Vue) {
     Vue.component(ChatDialog.name, ChatDialog)
