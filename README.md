@@ -12,6 +12,8 @@ npm run serve
 1. visit http://localhost:8080?userid=id1&username=userA&groupname=chat
 2. visit http://localhost:8080?userid=id2&username=userB&groupname=chat
 
+![](./chatdialogview.png)
+
 ### Compiles and minifies for production
 ```
 npm run lib
