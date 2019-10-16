@@ -11,18 +11,46 @@
 </template>
 
 <script>
-
+const now = Date.now()
 export default {
   name: 'app',
   data() {
     return {
       messageList: [
       {
+          name: 'system',
+          id: 'invite',
+          type: 'system',
+          message: 'userA invited userC to this chat group',
+          createdTime: now - 1000 * 60 * 5
+      },
+      {
         name: 'system',
         id: 'recall',
         message: 'userA recalled a message',
         type: 'system',
-        createdTime: (new Date(2018,3,5)).getTime()
+        createdTime: now - 1000 * 60 * 3
+      },
+      {
+          name: this.userName || 'userA',
+          id: this.userId || 'id1',
+          message: 'hello',
+          type: 'text',
+          createdTime: now - 1000 * 60 * 2
+      },
+      {
+          name: 'userB',
+          id: 'id2',
+          type: 'text',
+          message: 'hello userA',
+          createdTime: now - 1000 * 60 * 1
+      },
+      {
+          name: 'userA',
+          id: 'id1',
+          type: 'image',
+          message: 'https://www.gobear.com/sg/sites/singapore/files/inline-images/bear_partners-1.2aa576c-2.svg',
+          createdTime: now - 1000 * 60 * 1
       }
       ]
     }
